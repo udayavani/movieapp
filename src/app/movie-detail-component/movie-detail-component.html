@@ -1,0 +1,19 @@
+
+
+
+
+<div class="movie-details" *ngIf="movieDetails">
+<h2>{{ movieDetails.original_title }}</h2>
+</div>
+
+<div class="container" *ngIf="movieDetails">
+  <div fxLayout="row"
+       fxLayout.xs="column"
+       fxLayout.sm="column"
+       fxFlex class="contentResp">
+    <div class="blocks" fxFlex><img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movieDetails.poster_path}}" ></div>
+    <div class="blocks" fxFlex> <strong>Overview: </strong>{{movieDetails.overview}} </div>
+    <div class="blocks" fxFlex *ngFor="let lan of movieDetails.spoken_languages"> <strong>Language: </strong>{{lan.name}}</div>
+  </div>
+</div>
+

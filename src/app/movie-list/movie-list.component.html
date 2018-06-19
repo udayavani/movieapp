@@ -1,0 +1,38 @@
+<mat-tab-group (selectedTabChange)="onTabChange($event)">
+  <mat-tab label="Now Playing">
+    <mat-grid-list cols="2" rowHeight="280px" [gutterSize]="ratioGutter"
+                   [style.height]="fitListHeight">
+      <mat-grid-tile *ngFor="let result of results"  [style.background]="'#fff'">
+        <div class="text-inside-grid"><strong>{{result.title}}</strong><span class="movie-release-date">{{result.release_date}}</span></div>
+        <div class="movie-image"><img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{result.poster_path}}" width="140" height="200" ></div>
+        <div class="movie-popularity"><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/best-excellent-favorite-popularity-premium-rating-stars-360002abe089493d-512x512.png"
+                                           width="50" height="50" >{{result.popularity}}
+        </div>
+
+        <div class="movie-overview"><p>{{result.overview}}</p>
+
+          <a class="movie-details" [routerLink]="['/movie-details', result.id]" routerLinkActive="active">More Details</a>
+        </div>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+  <mat-tab label="Upcoming Movies">
+    <mat-grid-list cols="2" rowHeight="280px" [gutterSize]="ratioGutter"
+                   [style.height]="fitListHeight">
+      <mat-grid-tile *ngFor="let result of results"  [style.background]="'#fff'">
+        <div class="text-inside-grid"><strong>{{result.title}}</strong><span class="movie-release-date">{{result.release_date}}</span></div>
+        <div class="movie-image"><img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{result.poster_path}}" width="140" height="200" ></div>
+        <div class="movie-popularity"><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/best-excellent-favorite-popularity-premium-rating-stars-360002abe089493d-512x512.png"
+                                           width="50" height="50" >{{result.popularity}}
+        </div>
+
+        <div class="movie-overview"><p>{{result.overview}}</p>
+
+          <a class="movie-details" [routerLink]="['/movie-details', result.id]" routerLinkActive="active">More Details</a>
+        </div>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>
